@@ -1,1 +1,1 @@
-# C-GUI-project
+# CS-Desktop-application
