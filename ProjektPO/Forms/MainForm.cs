@@ -15,14 +15,11 @@ namespace SystemZarzadzaniaUrzadzeniami.Forms
         private List<Employee> employees = new List<Employee>();
         private List<Device> devices = new List<Device>();
 
-        // Przycisk do wczytania pliku SQL
         private Button btnLoadDatabase;
 
         public MainForm()
         {
             InitializeComponent();
-
-            // Dodaj przycisk dynamicznie (lub dodaj go w Designerze)
             btnLoadDatabase = new Button();
             btnLoadDatabase.Text = "Wczytaj bazę danych (plik SQL)";
             btnLoadDatabase.Width = 250;
@@ -30,12 +27,8 @@ namespace SystemZarzadzaniaUrzadzeniami.Forms
             btnLoadDatabase.Left = 10;
             btnLoadDatabase.Click += BtnLoadDatabase_Click;
             this.Controls.Add(btnLoadDatabase);
-
             AttachEventHandlers();
 
-            // Nie ładuj danych od razu, poczekaj aż użytkownik wczyta bazę
-            // LoadEmployees();
-            // LoadDevices();
         }
 
         private void AttachEventHandlers()
@@ -120,7 +113,7 @@ namespace SystemZarzadzaniaUrzadzeniami.Forms
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
                 openFileDialog.Filter = "SQL files (*.sql)|*.sql|All files (*.*)|*.*";
-                openFileDialog.Multiselect = true; // można wybrać wiele plików
+                openFileDialog.Multiselect = true;
 
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
@@ -141,7 +134,6 @@ namespace SystemZarzadzaniaUrzadzeniami.Forms
                         }
                         MessageBox.Show("Baza danych została pomyślnie utworzona i załadowana.");
 
-                        // Po wczytaniu bazy ładujemy dane do UI
                         LoadEmployees();
                         LoadDevices();
                     }
@@ -153,7 +145,6 @@ namespace SystemZarzadzaniaUrzadzeniami.Forms
             }
         }
 
-        // Eventy przycisków dodawania, edycji, usuwania pracowników i urządzeń
         private void BtnAddEmployee_Click(object sender, EventArgs e)
         {
             using (var form = new EmployeeForm())

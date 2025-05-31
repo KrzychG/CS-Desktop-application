@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 
 namespace SystemZarzadzaniaUrzadzeniami.Forms
 {
@@ -26,7 +27,9 @@ namespace SystemZarzadzaniaUrzadzeniami.Forms
         private void InitializeComponent()
         {
             this.dgvEmployees = new System.Windows.Forms.DataGridView();
+            this.dgvEmployees.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDevices = new System.Windows.Forms.DataGridView();
+            this.dgvDevices.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             this.btnAddEmployee = new System.Windows.Forms.Button();
             this.btnAddDevice = new System.Windows.Forms.Button();
             this.btnDeleteEmployee = new System.Windows.Forms.Button();
@@ -39,6 +42,31 @@ namespace SystemZarzadzaniaUrzadzeniami.Forms
             ((System.ComponentModel.ISupportInitialize)(this.dgvDevices)).BeginInit();
             this.SuspendLayout();
             // 
+            // MainForm - minimalny rozmiar i tytuł
+            // 
+            this.ClientSize = new System.Drawing.Size(880, 450);
+            this.MinimumSize = new System.Drawing.Size(800, 400);
+            this.Name = "MainForm";
+            this.Text = "Panel zarządzania pracownikami i urządzeniami";
+            this.Load += new System.EventHandler(this.MainForm_Load);
+            this.Resize += new System.EventHandler(this.MainForm_Resize);
+            //
+            // lblEmployees
+            //
+            this.lblEmployees.Location = new System.Drawing.Point(10, 10);
+            this.lblEmployees.Name = "lblEmployees";
+            this.lblEmployees.Size = new System.Drawing.Size(100, 23);
+            this.lblEmployees.TabIndex = 0;
+            this.lblEmployees.Text = "Pracownicy";
+            //
+            // lblDevices
+            //
+            this.lblDevices.Location = new System.Drawing.Point(450, 10);
+            this.lblDevices.Name = "lblDevices";
+            this.lblDevices.Size = new System.Drawing.Size(100, 23);
+            this.lblDevices.TabIndex = 1;
+            this.lblDevices.Text = "Urządzenia";
+            // 
             // dgvEmployees
             // 
             this.dgvEmployees.Location = new System.Drawing.Point(10, 40);
@@ -46,92 +74,60 @@ namespace SystemZarzadzaniaUrzadzeniami.Forms
             this.dgvEmployees.Name = "dgvEmployees";
             this.dgvEmployees.ReadOnly = true;
             this.dgvEmployees.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEmployees.Size = new System.Drawing.Size(400, 300);
             this.dgvEmployees.TabIndex = 2;
             // 
             // dgvDevices
             // 
-            this.dgvDevices.Location = new System.Drawing.Point(416, 40);
+            this.dgvDevices.Location = new System.Drawing.Point(450, 40);
             this.dgvDevices.MultiSelect = false;
             this.dgvDevices.Name = "dgvDevices";
             this.dgvDevices.ReadOnly = true;
             this.dgvDevices.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDevices.Size = new System.Drawing.Size(450, 300);
             this.dgvDevices.TabIndex = 3;
             // 
             // btnAddEmployee
             // 
-            this.btnAddEmployee.Location = new System.Drawing.Point(10, 350);
             this.btnAddEmployee.Name = "btnAddEmployee";
-            this.btnAddEmployee.Size = new System.Drawing.Size(120, 23);
             this.btnAddEmployee.TabIndex = 4;
             this.btnAddEmployee.Text = "Dodaj pracownika";
             this.btnAddEmployee.UseVisualStyleBackColor = true;
             // 
-            // btnAddDevice
-            // 
-            this.btnAddDevice.Location = new System.Drawing.Point(416, 350);
-            this.btnAddDevice.Name = "btnAddDevice";
-            this.btnAddDevice.Size = new System.Drawing.Size(120, 23);
-            this.btnAddDevice.TabIndex = 7;
-            this.btnAddDevice.Text = "Dodaj urządzenie";
-            this.btnAddDevice.UseVisualStyleBackColor = true;
-            // 
-            // btnDeleteEmployee
-            // 
-            this.btnDeleteEmployee.Location = new System.Drawing.Point(270, 350);
-            this.btnDeleteEmployee.Name = "btnDeleteEmployee";
-            this.btnDeleteEmployee.Size = new System.Drawing.Size(140, 23);
-            this.btnDeleteEmployee.TabIndex = 6;
-            this.btnDeleteEmployee.Text = "Usuń pracownika";
-            this.btnDeleteEmployee.UseVisualStyleBackColor = true;
-            // 
-            // btnDeleteDevice
-            // 
-            this.btnDeleteDevice.Location = new System.Drawing.Point(676, 350);
-            this.btnDeleteDevice.Name = "btnDeleteDevice";
-            this.btnDeleteDevice.Size = new System.Drawing.Size(120, 23);
-            this.btnDeleteDevice.TabIndex = 9;
-            this.btnDeleteDevice.Text = "Usuń urządzenie";
-            this.btnDeleteDevice.UseVisualStyleBackColor = true;
-            // 
             // btnEditEmployee
             // 
-            this.btnEditEmployee.Location = new System.Drawing.Point(140, 350);
             this.btnEditEmployee.Name = "btnEditEmployee";
-            this.btnEditEmployee.Size = new System.Drawing.Size(120, 23);
             this.btnEditEmployee.TabIndex = 5;
             this.btnEditEmployee.Text = "Edytuj pracownika";
             this.btnEditEmployee.UseVisualStyleBackColor = true;
             // 
+            // btnDeleteEmployee
+            // 
+            this.btnDeleteEmployee.Name = "btnDeleteEmployee";
+            this.btnDeleteEmployee.TabIndex = 6;
+            this.btnDeleteEmployee.Text = "Usuń pracownika";
+            this.btnDeleteEmployee.UseVisualStyleBackColor = true;
+            // 
+            // btnAddDevice
+            // 
+            this.btnAddDevice.Name = "btnAddDevice";
+            this.btnAddDevice.TabIndex = 7;
+            this.btnAddDevice.Text = "Dodaj urządzenie";
+            this.btnAddDevice.UseVisualStyleBackColor = true;
+            // 
             // btnEditDevice
             // 
-            this.btnEditDevice.Location = new System.Drawing.Point(546, 350);
             this.btnEditDevice.Name = "btnEditDevice";
-            this.btnEditDevice.Size = new System.Drawing.Size(120, 23);
             this.btnEditDevice.TabIndex = 8;
             this.btnEditDevice.Text = "Edytuj urządzenie";
             this.btnEditDevice.UseVisualStyleBackColor = true;
             // 
-            // lblEmployees
+            // btnDeleteDevice
             // 
-            this.lblEmployees.Location = new System.Drawing.Point(10, 10);
-            this.lblEmployees.Name = "lblEmployees";
-            this.lblEmployees.Size = new System.Drawing.Size(100, 23);
-            this.lblEmployees.TabIndex = 0;
-            this.lblEmployees.Text = "Pracownicy";
-            // 
-            // lblDevices
-            // 
-            this.lblDevices.Location = new System.Drawing.Point(416, 10);
-            this.lblDevices.Name = "lblDevices";
-            this.lblDevices.Size = new System.Drawing.Size(100, 23);
-            this.lblDevices.TabIndex = 1;
-            this.lblDevices.Text = "Urządzenia";
-            // 
-            // MainForm
-            // 
-            this.ClientSize = new System.Drawing.Size(880, 400);
+            this.btnDeleteDevice.Name = "btnDeleteDevice";
+            this.btnDeleteDevice.TabIndex = 9;
+            this.btnDeleteDevice.Text = "Usuń urządzenie";
+            this.btnDeleteDevice.UseVisualStyleBackColor = true;
+
+            // Dodaj kontrolki
             this.Controls.Add(this.lblEmployees);
             this.Controls.Add(this.lblDevices);
             this.Controls.Add(this.dgvEmployees);
@@ -142,13 +138,56 @@ namespace SystemZarzadzaniaUrzadzeniami.Forms
             this.Controls.Add(this.btnAddDevice);
             this.Controls.Add(this.btnEditDevice);
             this.Controls.Add(this.btnDeleteDevice);
-            this.Name = "MainForm";
-            this.Text = "Panel zarządzania pracownikami i urządzeniami";
-            this.Load += new System.EventHandler(this.MainForm_Load);
+
+            this.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployees)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDevices)).EndInit();
             this.ResumeLayout(false);
 
+            // Ustaw początkowe rozmiary i pozycje
+            AdjustLayout();
+        }
+
+        // Event handler Resize
+        private void MainForm_Resize(object sender, EventArgs e)
+        {
+            AdjustLayout();
+        }
+
+        // Metoda do dynamicznego układu kontrolek
+        private void AdjustLayout()
+        {
+            int margin = 10;
+            int width = this.ClientSize.Width;
+            int height = this.ClientSize.Height;
+
+            // szerokość każdej DataGridView: połowa szerokości okna minus marginesy
+            int dgvWidth = (width - 3 * margin) / 2;
+            int dgvHeight = height - 90; // zostawiamy miejsce na labelki i przyciski
+
+            // Pozycja i rozmiar DataGridViews
+            dgvEmployees.SetBounds(margin, 40, dgvWidth, dgvHeight);
+            dgvDevices.SetBounds(margin * 2 + dgvWidth, 40, dgvWidth, dgvHeight);
+
+            // Labelki nad DataGridView
+            lblEmployees.Location = new System.Drawing.Point(margin, 10);
+            lblDevices.Location = new System.Drawing.Point(margin * 2 + dgvWidth, 10);
+
+            // Przycisk pracownicy - pod dgvEmployees
+            int btnWidth = 120;
+            int btnHeight = 23;
+            int btnTop = 40 + dgvHeight + margin;
+
+            btnAddEmployee.SetBounds(margin, btnTop, btnWidth, btnHeight);
+            btnEditEmployee.SetBounds(margin + btnWidth + margin, btnTop, btnWidth, btnHeight);
+            btnDeleteEmployee.SetBounds(margin + 2 * (btnWidth + margin), btnTop, btnWidth, btnHeight);
+
+            // Przycisk urządzenia - pod dgvDevices
+            int deviceBtnLeft = margin * 2 + dgvWidth;
+
+            btnAddDevice.SetBounds(deviceBtnLeft, btnTop, btnWidth, btnHeight);
+            btnEditDevice.SetBounds(deviceBtnLeft + btnWidth + margin, btnTop, btnWidth, btnHeight);
+            btnDeleteDevice.SetBounds(deviceBtnLeft + 2 * (btnWidth + margin), btnTop, btnWidth, btnHeight);
         }
     }
 }
