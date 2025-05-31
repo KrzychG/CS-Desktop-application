@@ -1,4 +1,6 @@
-﻿namespace SystemZarzadzaniaUrzadzeniami.Forms
+﻿using System.Windows.Forms;
+
+namespace SystemZarzadzaniaUrzadzeniami.Forms
 {
     partial class DeviceForm
     {
@@ -29,8 +31,8 @@
             this.txtSerial = new System.Windows.Forms.TextBox();
             this.lblEmployee = new System.Windows.Forms.Label();
             this.cmbEmployee = new System.Windows.Forms.ComboBox();
-            this.lblPurchaseDate = new System.Windows.Forms.Label();    
-            this.dtpPurchaseDate = new System.Windows.Forms.DateTimePicker(); 
+            this.lblPurchaseDate = new System.Windows.Forms.Label();
+            this.dtpPurchaseDate = new System.Windows.Forms.DateTimePicker();
             this.btnOk = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -39,85 +41,95 @@
             //
             this.lblName.Location = new System.Drawing.Point(12, 15);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(100, 23);
+            this.lblName.Size = new System.Drawing.Size(120, 23);
             this.lblName.TabIndex = 0;
             this.lblName.Text = "Nazwa urządzenia:";
-            //
-            // txtName
-            //
+            this.lblName.Anchor = AnchorStyles.Top | AnchorStyles.Right;  // <-- dodane
+                                                                          //
+                                                                          // txtName
+                                                                          //
             this.txtName.Location = new System.Drawing.Point(140, 12);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(200, 20);
             this.txtName.TabIndex = 1;
+            this.txtName.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             //
             // lblSerial
             //
             this.lblSerial.Location = new System.Drawing.Point(12, 45);
             this.lblSerial.Name = "lblSerial";
-            this.lblSerial.Size = new System.Drawing.Size(100, 23);
+            this.lblSerial.Size = new System.Drawing.Size(120, 23);
             this.lblSerial.TabIndex = 2;
             this.lblSerial.Text = "Numer seryjny:";
-            //
-            // txtSerial
-            //
+            this.lblSerial.Anchor = AnchorStyles.Top | AnchorStyles.Right;  // <-- dodane
+                                                                            //
+                                                                            // txtSerial
+                                                                            //
             this.txtSerial.Location = new System.Drawing.Point(140, 42);
             this.txtSerial.Name = "txtSerial";
             this.txtSerial.Size = new System.Drawing.Size(200, 20);
             this.txtSerial.TabIndex = 3;
+            this.txtSerial.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             //
             // lblEmployee
             //
             this.lblEmployee.Location = new System.Drawing.Point(12, 75);
             this.lblEmployee.Name = "lblEmployee";
-            this.lblEmployee.Size = new System.Drawing.Size(100, 23);
+            this.lblEmployee.Size = new System.Drawing.Size(120, 23);
             this.lblEmployee.TabIndex = 6;
             this.lblEmployee.Text = "Pracownik:";
-            //
-            // cmbEmployee
-            //
+            this.lblEmployee.Anchor = AnchorStyles.Top | AnchorStyles.Right;  // <-- dodane
+                                                                              //
+                                                                              // cmbEmployee
+                                                                              //
             this.cmbEmployee.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbEmployee.Location = new System.Drawing.Point(140, 72);
             this.cmbEmployee.Name = "cmbEmployee";
             this.cmbEmployee.Size = new System.Drawing.Size(200, 21);
             this.cmbEmployee.TabIndex = 7;
+            this.cmbEmployee.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             //
             // lblPurchaseDate
             //
             this.lblPurchaseDate.Location = new System.Drawing.Point(12, 105);
             this.lblPurchaseDate.Name = "lblPurchaseDate";
-            this.lblPurchaseDate.Size = new System.Drawing.Size(100, 23);
+            this.lblPurchaseDate.Size = new System.Drawing.Size(120, 23);
             this.lblPurchaseDate.TabIndex = 8;
             this.lblPurchaseDate.Text = "Data zakupu:";
-            //
-            // dtpPurchaseDate
-            //
+            this.lblPurchaseDate.Anchor = AnchorStyles.Top | AnchorStyles.Right;  // <-- dodane
+                                                                                  //
+                                                                                  // dtpPurchaseDate
+                                                                                  //
             this.dtpPurchaseDate.Location = new System.Drawing.Point(140, 102);
             this.dtpPurchaseDate.Name = "dtpPurchaseDate";
             this.dtpPurchaseDate.Size = new System.Drawing.Size(200, 20);
             this.dtpPurchaseDate.TabIndex = 9;
             this.dtpPurchaseDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpPurchaseDate.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             //
             // btnOk
             //
-            this.btnOk.Location = new System.Drawing.Point(140, 135);
+            this.btnOk.Location = new System.Drawing.Point(185, 135);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(75, 23);
             this.btnOk.TabIndex = 4;
             this.btnOk.Text = "OK";
             this.btnOk.Click += new System.EventHandler(this.BtnOk_Click);
+            this.btnOk.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             //
             // btnCancel
             //
-            this.btnCancel.Location = new System.Drawing.Point(220, 135);
+            this.btnCancel.Location = new System.Drawing.Point(265, 135);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 5;
             this.btnCancel.Text = "Anuluj";
             this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
+            this.btnCancel.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             //
             // DeviceForm
             //
-            this.ClientSize = new System.Drawing.Size(360, 180); 
+            this.ClientSize = new System.Drawing.Size(360, 180);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.lblSerial);
@@ -128,6 +140,9 @@
             this.Controls.Add(this.dtpPurchaseDate);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.btnCancel);
+            this.MinimumSize = new System.Drawing.Size(380, 220);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.Name = "DeviceForm";
             this.Load += new System.EventHandler(this.DeviceForm_Load);
             this.ResumeLayout(false);

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using SystemZarzadzaniaUrzadzeniami.Service; 
+using SystemZarzadzaniaUrzadzeniami.Service;
 
 namespace SystemZarzadzaniaUrzadzeniami.Forms
 {
@@ -80,6 +80,5 @@ namespace SystemZarzadzaniaUrzadzeniami.Forms
             DialogResult = DialogResult.Cancel;
             Close();
         }
-
     }
 }

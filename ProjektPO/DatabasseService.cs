@@ -8,6 +8,8 @@ namespace SystemZarzadzaniaUrzadzeniami.Service
     {
         private readonly string connectionString = "Host=localhost;Port=5432;Database=urzadzenia;Username=postgres;Password=password";
 
+        public string ConnectionString => connectionString;
+
         // -- EMPLOYEES --
 
         public List<Employee> GetEmployees()
@@ -77,7 +79,6 @@ namespace SystemZarzadzaniaUrzadzeniami.Service
                 }
             }
         }
-
 
         // -- DEVICES --
 
@@ -180,5 +181,4 @@ namespace SystemZarzadzaniaUrzadzeniami.Service
             return list;
         }
     }
-
 }
