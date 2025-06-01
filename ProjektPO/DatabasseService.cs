@@ -72,13 +72,21 @@ namespace SystemZarzadzaniaUrzadzeniami.Service
             using (var conn = new NpgsqlConnection(connectionString))
             {
                 conn.Open();
-                using (var cmd = new NpgsqlCommand("DELETE FROM employee WHERE id = @id", conn))
+
+                using (var cmdUpdateDevices = new NpgsqlCommand("UPDATE device SET employeeid = NULL WHERE employeeid = @id", conn))
                 {
-                    cmd.Parameters.AddWithValue("id", employeeId);
-                    cmd.ExecuteNonQuery();
+                    cmdUpdateDevices.Parameters.AddWithValue("id", employeeId);
+                    cmdUpdateDevices.ExecuteNonQuery();
+                }
+
+                using (var cmdDeleteEmployee = new NpgsqlCommand("DELETE FROM employee WHERE id = @id", conn))
+                {
+                    cmdDeleteEmployee.Parameters.AddWithValue("id", employeeId);
+                    cmdDeleteEmployee.ExecuteNonQuery();
                 }
             }
         }
+
 
         // -- DEVICES --
 
@@ -151,34 +159,6 @@ namespace SystemZarzadzaniaUrzadzeniami.Service
                     cmd.ExecuteNonQuery();
                 }
             }
-        }
-
-        public List<Device> GetDevicesByEmployeeId(int employeeId)
-        {
-            var list = new List<Device>();
-            using (var conn = new NpgsqlConnection(connectionString))
-            {
-                conn.Open();
-                using (var cmd = new NpgsqlCommand("SELECT id, name, serialnumber, purchasedate, employeeid FROM device WHERE employeeid = @employeeid", conn))
-                {
-                    cmd.Parameters.AddWithValue("employeeid", employeeId);
-                    using (var reader = cmd.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            list.Add(new Device
-                            {
-                                Id = reader.GetInt32(0),
-                                Name = reader.GetString(1),
-                                SerialNumber = reader.GetString(2),
-                                PurchaseDate = reader.GetDateTime(3),
-                                EmployeeId = reader.IsDBNull(4) ? (int?)null : reader.GetInt32(4)
-                            });
-                        }
-                    }
-                }
-            }
-            return list;
         }
     }
 }

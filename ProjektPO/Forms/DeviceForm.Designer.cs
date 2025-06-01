@@ -44,10 +44,10 @@ namespace SystemZarzadzaniaUrzadzeniami.Forms
             this.lblName.Size = new System.Drawing.Size(120, 23);
             this.lblName.TabIndex = 0;
             this.lblName.Text = "Nazwa urządzenia:";
-            this.lblName.Anchor = AnchorStyles.Top | AnchorStyles.Right;  // <-- dodane
-                                                                          //
-                                                                          // txtName
-                                                                          //
+            this.lblName.Anchor = AnchorStyles.Top | AnchorStyles.Right;  
+            //
+            // txtName
+            //
             this.txtName.Location = new System.Drawing.Point(140, 12);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(200, 20);
@@ -61,10 +61,10 @@ namespace SystemZarzadzaniaUrzadzeniami.Forms
             this.lblSerial.Size = new System.Drawing.Size(120, 23);
             this.lblSerial.TabIndex = 2;
             this.lblSerial.Text = "Numer seryjny:";
-            this.lblSerial.Anchor = AnchorStyles.Top | AnchorStyles.Right;  // <-- dodane
-                                                                            //
-                                                                            // txtSerial
-                                                                            //
+            this.lblSerial.Anchor = AnchorStyles.Top | AnchorStyles.Right; 
+            //
+            // txtSerial
+            //
             this.txtSerial.Location = new System.Drawing.Point(140, 42);
             this.txtSerial.Name = "txtSerial";
             this.txtSerial.Size = new System.Drawing.Size(200, 20);
@@ -78,10 +78,10 @@ namespace SystemZarzadzaniaUrzadzeniami.Forms
             this.lblEmployee.Size = new System.Drawing.Size(120, 23);
             this.lblEmployee.TabIndex = 6;
             this.lblEmployee.Text = "Pracownik:";
-            this.lblEmployee.Anchor = AnchorStyles.Top | AnchorStyles.Right;  // <-- dodane
-                                                                              //
-                                                                              // cmbEmployee
-                                                                              //
+            this.lblEmployee.Anchor = AnchorStyles.Top | AnchorStyles.Right; 
+            //
+            // cmbEmployee
+            //
             this.cmbEmployee.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbEmployee.Location = new System.Drawing.Point(140, 72);
             this.cmbEmployee.Name = "cmbEmployee";
@@ -96,10 +96,10 @@ namespace SystemZarzadzaniaUrzadzeniami.Forms
             this.lblPurchaseDate.Size = new System.Drawing.Size(120, 23);
             this.lblPurchaseDate.TabIndex = 8;
             this.lblPurchaseDate.Text = "Data zakupu:";
-            this.lblPurchaseDate.Anchor = AnchorStyles.Top | AnchorStyles.Right;  // <-- dodane
-                                                                                  //
-                                                                                  // dtpPurchaseDate
-                                                                                  //
+            this.lblPurchaseDate.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            //
+            // dtpPurchaseDate
+            //
             this.dtpPurchaseDate.Location = new System.Drawing.Point(140, 102);
             this.dtpPurchaseDate.Name = "dtpPurchaseDate";
             this.dtpPurchaseDate.Size = new System.Drawing.Size(200, 20);

@@ -33,11 +33,11 @@ namespace SystemZarzadzaniaUrzadzeniami.Forms
             {
                 int index = employees.FindIndex(emp => emp.Id == DeviceData.EmployeeId.Value);
                 if (index >= 0)
-                    cmbEmployee.SelectedIndex = index;
+                    cmbEmployee.SelectedIndex = index + 1;
             }
             else
             {
-                cmbEmployee.SelectedIndex = -1;
+                cmbEmployee.SelectedIndex = 0;
             }
         }
 
@@ -47,6 +47,8 @@ namespace SystemZarzadzaniaUrzadzeniami.Forms
             employees = db.GetEmployees();
 
             cmbEmployee.Items.Clear();
+            cmbEmployee.Items.Add("Brak pracownika");
+
             foreach (var emp in employees)
             {
                 cmbEmployee.Items.Add($"{emp.Id} - {emp.FirstName} {emp.LastName}");
@@ -57,7 +59,7 @@ namespace SystemZarzadzaniaUrzadzeniami.Forms
         {
             if (string.IsNullOrWhiteSpace(txtName.Text) || string.IsNullOrWhiteSpace(txtSerial.Text) || cmbEmployee.SelectedIndex < 0)
             {
-                MessageBox.Show("Wszystkie pola są wymagane, w tym wybór pracownika.", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Wszystkie pola są wymagane", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -68,12 +70,18 @@ namespace SystemZarzadzaniaUrzadzeniami.Forms
 
             DeviceData.Name = txtName.Text.Trim();
             DeviceData.SerialNumber = txtSerial.Text.Trim();
-            DeviceData.EmployeeId = employees[cmbEmployee.SelectedIndex].Id;
+
+            if (cmbEmployee.SelectedIndex == 0)
+                DeviceData.EmployeeId = null; 
+            else
+                DeviceData.EmployeeId = employees[cmbEmployee.SelectedIndex - 1].Id;
+
             DeviceData.PurchaseDate = dtpPurchaseDate.Value.Date;
 
             DialogResult = DialogResult.OK;
             Close();
         }
+
 
         private void BtnCancel_Click(object sender, EventArgs e)
         {
