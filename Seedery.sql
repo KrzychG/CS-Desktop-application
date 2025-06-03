@@ -3,5 +3,5 @@ INSERT INTO employee (firstname, lastname, department) VALUES
 ('Anna', 'Nowak', 'HR');
 
 INSERT INTO device (name, serialnumber, purchasedate, employeeid) VALUES
-('Laptop Dell', 'SN123456', '2023-01-15', 1),
-('Monitor Samsung', 'SN654321', '2023-02-20', 2);
+('Laptop Dell', 'SN123456', '2023-01-15', NULL),
+('Monitor Samsung', 'SN654321', '2023-02-20', NULL);
