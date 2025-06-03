@@ -107,6 +107,9 @@
             this.Controls.Add(this.btnCancel);
             this.Name = "EmployeeForm";
             this.Load += new System.EventHandler(this.EmployeeForm_Load);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = true;
             this.ResumeLayout(false);
             this.PerformLayout();
 

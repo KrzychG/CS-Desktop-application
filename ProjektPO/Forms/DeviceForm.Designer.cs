@@ -145,6 +145,9 @@ namespace SystemZarzadzaniaUrzadzeniami.Forms
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.Name = "DeviceForm";
             this.Load += new System.EventHandler(this.DeviceForm_Load);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = true;
             this.ResumeLayout(false);
             this.PerformLayout();
         }
